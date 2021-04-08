@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import axios from 'axios';
 export default class Creategrade extends Component{
     constructor(props) {
         super(props);
@@ -19,10 +19,16 @@ export default class Creategrade extends Component{
     }
 
     componentDidMount() {
-        this.setState({
-            users: ['test user'],
-            username: 'test user'
-        });
+        axios.get('http://localhost:5000/users')
+            .then(res =>{
+                if(res.data.length>0){
+                    this.setState({
+                        users: res.data.map(user => user.username),
+                        username: res.data[0].username
+                    });
+                }
+            })
+
     }
 
     onChangeUsername(e) {
@@ -52,6 +58,8 @@ export default class Creategrade extends Component{
             grade: this.state.grade
         }
         console.log(grade);
+        axios.post('http://localhost:5000/grades/add', grade)
+            .then(res => console.log(res.data));
         window.location = '/';
     }
 

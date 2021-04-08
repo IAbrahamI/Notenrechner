@@ -5,7 +5,7 @@ router.route('/').get((req, res) =>{
     Grade.find()
         .then(grades => res.json(grades))
         .catch(err => res.status(400).json('Error: '+ err));
-})
+});
 //-----------------------------------------------------------------------------------
 router.route('/add').post((req,res) => {
     const username = req.body.username;
@@ -20,7 +20,7 @@ router.route('/add').post((req,res) => {
     newGrade.save()
         .then(() => res.json('Grade added!'))
         .catch(err => res.status(400).json('Error'+ err));
-})
+});
 //-----------------------------------------------------------------------------------
 router.route('/:id').get((req,res) =>{
     Grade.findById(req.params.id)
@@ -46,5 +46,5 @@ router.route('/update/:id').post((req,res) =>{
                 .catch(err => res.status(400).json('Error'+ err));
         })
         .catch(err => res.status(400).json('Error'+ err));
-})
+});
 module.exports = router;

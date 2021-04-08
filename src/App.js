@@ -9,7 +9,6 @@ import CreateUser from "./components/createuser.component";
 
 function App() {
   return (
-      //1:19:39
       <Router>
           <Navbar/>
           <br/>
