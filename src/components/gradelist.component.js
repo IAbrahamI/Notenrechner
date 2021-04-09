@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Link} from 'react-router-dom';
+import '../styles/list.css';
 import axios from 'axios';
 
 const Grade = props =>(
@@ -21,13 +22,13 @@ export default class Gradelist extends Component{
     }
 
     componentDidMount() {
-        axios.get('https://localhost:5000/grades/')
+        axios.get('http://localhost:5000/grades/')
             .then(response => {
                 this.setState({grades: response.data})
             })
             .catch((err) =>{
                 console.log(err);
-            })
+            });
     }
 
     deleteGrade(id){

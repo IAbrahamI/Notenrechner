@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
-
+import '../styles/editgrade.css';
 export default class Editgrade extends Component{
     constructor(props) {
         super(props);

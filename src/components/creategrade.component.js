@@ -1,5 +1,7 @@
 import React, {Component} from "react";
+import '../styles/creategrade.css';
 import axios from 'axios';
+
 export default class Creategrade extends Component{
     constructor(props) {
         super(props);
@@ -28,7 +30,6 @@ export default class Creategrade extends Component{
                     });
                 }
             })
-
     }
 
     onChangeUsername(e) {

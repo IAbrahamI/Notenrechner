@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import '../styles/createuser.css';
 import axios from 'axios';
 
 export default class CreateUser extends Component{
@@ -32,16 +33,18 @@ export default class CreateUser extends Component{
     render() {
         return(
             <div>
-                <h3>Create new User</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Username:</label>
-                        <input type="text" required className="form-control" value={this.state.username} onChange={this.onChangeUsername}/>
-                    </div>
-                    <div className="form-group">
-                        <input type="submit" value="Create User" className="btn btn-primary"/>
-                    </div>
-                </form>
+                <div>
+                    <h3>Create new User</h3>
+                    <form onSubmit={this.onSubmit}>
+                        <div className="form-group">
+                            <input type="text" required placeholder="Username" className="form-control" value={this.state.username} onChange={this.onChangeUsername}/>
+                        </div>
+                        <br/>
+                        <div className="form-group">
+                            <input type="submit" value="Create User" className="btn btn-primary"/>
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }
